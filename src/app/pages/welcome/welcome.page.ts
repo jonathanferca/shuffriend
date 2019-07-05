@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WelcomePage implements OnInit {
 
+  public sliderOptions = {
+    pager: true
+  };
+
   constructor() { }
 
   ngOnInit() {

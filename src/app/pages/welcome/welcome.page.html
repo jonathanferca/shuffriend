@@ -5,5 +5,38 @@
 </ion-header>
 
 <ion-content>
+  <ion-slides pager="true" [options]="slideOpts" class="welcome-wrapper ion-align-items-start">
+    <ion-slide>
+      <ion-grid>
+        <ion-row class="ion-justify-content-center">
+          <h1>Welcome to Shuffriend!</h1>
+        </ion-row>
+        <ion-row class="ion-justify-content-center">
+          <p>Shuffriend it's a really simple App that helps you to stay in touch and catch up with your friends from facebook.</p>
+        </ion-row>
+      </ion-grid>
+    </ion-slide>
 
+    <ion-slide>
+      <ion-grid>
+        <ion-row class="ion-justify-content-center">
+          <h1>Login with Facebook</h1>
+        </ion-row>
+        <ion-row class="ion-justify-content-center">
+          <p>You just need to login with Facebook so you can have a list of your friends and randomly organize a meeting.</p>
+        </ion-row>
+      </ion-grid>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-grid>
+        <ion-row class="ion-justify-content-center">
+          <h1>Be Social!</h1>
+        </ion-row>
+        <ion-row class="ion-justify-content-center">
+          <p>Once you are logged press the button "Be Social" so you can randomly get a friend to organize a meeting and catch up.</p>
+        </ion-row>
+      </ion-grid>
+    </ion-slide>
+  </ion-slides>
 </ion-content>
