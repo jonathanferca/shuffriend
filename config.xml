@@ -90,4 +90,5 @@
         <variable name="APP_ID" value="2398187670416760" />
         <variable name="APP_NAME" value="Shuffriend" />
     </plugin>
+    <plugin name="cordova-sqlite-storage" spec="^3.2.1" />
 </widget>

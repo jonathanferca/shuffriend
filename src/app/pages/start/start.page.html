@@ -7,7 +7,7 @@
 <ion-content>
   <ion-grid class="start-wrapper">
     <ion-row class="ion-align-items-center ion-justify-content-center start-wrapper">
-        <ion-button>
+        <ion-button tappable (click)="loginWithFacebook()" [disabled]="!allowLogin">
           <ion-icon slot="start" name="logo-facebook"></ion-icon>
           Login with Facebook
         </ion-button>
