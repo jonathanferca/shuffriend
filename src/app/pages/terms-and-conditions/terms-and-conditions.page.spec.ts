@@ -1,22 +1,22 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TermsAndCondtionsPage } from './terms-and-condtions.page';
+import { TermsAndConditionsPage } from './terms-and-conditions.page';
 
-describe('TermsAndCondtionsPage', () => {
-  let component: TermsAndCondtionsPage;
-  let fixture: ComponentFixture<TermsAndCondtionsPage>;
+describe('TermsAndConditionsPage', () => {
+  let component: TermsAndConditionsPage;
+  let fixture: ComponentFixture<TermsAndConditionsPage>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TermsAndCondtionsPage ],
+      declarations: [ TermsAndConditionsPage ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TermsAndCondtionsPage);
+    fixture = TestBed.createComponent(TermsAndConditionsPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
