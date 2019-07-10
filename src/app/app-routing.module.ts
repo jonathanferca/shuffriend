@@ -5,7 +5,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'start', pathMatch: 'full' },
   { path: 'welcome', loadChildren: './pages/welcome/welcome.module#WelcomePageModule' },
   { path: 'start', loadChildren: './pages/start/start.module#StartPageModule' },
-  { path: 'terms-and-condtions', loadChildren: './pages/terms-and-condtions/terms-and-condtions.module#TermsAndCondtionsPageModule' },
+  { path: 'terms-and-conditions', loadChildren: './pages/terms-and-conditions/terms-and-conditions.module#TermsAndConditionsPageModule' },
   { path: 'privacy-policy', loadChildren: './pages/privacy-policy/privacy-policy.module#PrivacyPolicyPageModule' },
   { path: 'home', loadChildren: './pages/home/home.module#HomePageModule' },
   { path: 'meetings', loadChildren: './pages/meetings/meetings.module#MeetingsPageModule' },
