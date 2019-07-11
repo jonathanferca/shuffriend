@@ -1,6 +1,11 @@
+// Angular
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+// Ionic
 import { AlertController } from '@ionic/angular';
 
+// Native
 import { Facebook } from '@ionic-native/facebook/ngx';
 import { Storage } from '@ionic/storage';
 
@@ -20,6 +25,7 @@ export class StartPage implements OnInit {
    ***********************************************************/
 
   constructor(
+    private router: Router,
     private alertController: AlertController,
     private storage: Storage,
     private facebook: Facebook
@@ -52,20 +58,20 @@ export class StartPage implements OnInit {
    * API CALLS
    ***********************************************************/
 
-  getFacebookLoginStatus() {
-    this.facebook.getLoginStatus().then(
-      (loginStatusResponse) => {
-        alert('loginStatusResponse');
-        alert(loginStatusResponse);
+  // getFacebookLoginStatus() {
+  //   this.facebook.getLoginStatus().then(
+  //     (loginStatusResponse) => {
+  //       alert('loginStatusResponse');
+  //       alert(loginStatusResponse);
 
-      },
-      (loginStatusError) => {
-        alert('loginStatusError');
-        alert(loginStatusError);
+  //     },
+  //     (loginStatusError) => {
+  //       alert('loginStatusError');
+  //       alert(loginStatusError);
 
-      }
-    );
-  }
+  //     }
+  //   );
+  // }
 
   loginWithFacebook() {
     this.allowLogin = false;
@@ -78,9 +84,13 @@ export class StartPage implements OnInit {
         if (loginResponse.status === 'connected') {
           alert('You are logged in');
 
+          // Navigates to HomePage
+          this.router.navigate(['/home']);
+
         } else {
           alert('Status is not connected');
 
+          this.presentInfoAlert('Error', '', loginResponse.status);
         }
 
         this.allowLogin = true;
@@ -94,14 +104,6 @@ export class StartPage implements OnInit {
         this.allowLogin = true;
       }
     );
-  }
-
-  getFacebookUserData() {
-
-  }
-
-  getFacebookUserFriends() {
-
   }
 
 }

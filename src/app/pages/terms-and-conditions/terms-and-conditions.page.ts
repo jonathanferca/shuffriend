@@ -7,7 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TermsAndConditionsPage implements OnInit {
 
+  /***********************************************************
+   * CONSTRUCTOR
+   ***********************************************************/
+
   constructor() { }
+
+  /***********************************************************
+   * LIFECYCLE HOOKS
+   ***********************************************************/
 
   ngOnInit() {
   }

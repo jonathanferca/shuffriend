@@ -7,7 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PrivacyPolicyPage implements OnInit {
 
+  /***********************************************************
+   * CONSTRUCTOR
+   ***********************************************************/
+
   constructor() { }
+
+  /***********************************************************
+   * LIFECYCLE HOOKS
+   ***********************************************************/
 
   ngOnInit() {
   }
