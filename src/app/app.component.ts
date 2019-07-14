@@ -59,5 +59,25 @@ export class AppComponent {
     );
   }
 
+  logout() {
+    this.facebook.logout().then(
+      (logoutResponse) => {
+        console.log('logoutResponse');
+        console.log(logoutResponse);
+
+        alert('logoutResponse');
+        alert(logoutResponse);
+
+        this.router.navigate(['/start']);
+      },
+      (logoutError) => {
+        console.log('logoutError');
+        console.log(logoutError);
+
+        alert('logoutError');
+        alert(logoutError);
+      }
+    );
+  }
 
 }
