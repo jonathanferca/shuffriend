@@ -35,6 +35,10 @@ export class HomePage implements OnInit {
    * ACTIONS
    ***********************************************************/
 
+  refreshFriends() {
+    alert('I will refresh friends');
+  }
+
   inviteFriends() {
     alert('I will invite friends');
   }

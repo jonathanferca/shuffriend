@@ -1,6 +1,16 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
     <ion-title>Home</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button tappable (click)="refreshFriends()">
+        <ion-icon slot="icon-only" name="refresh"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -11,15 +21,14 @@
         <img src="{{ facebookUser?.picture?.data?.url }}">
       </ion-avatar>
 
-      <ion-card-subtitle class="ion-margin-top">Hi,</ion-card-subtitle>
+      <ion-card-subtitle class="ion-margin-top ion-text-capitalize">Welcome,</ion-card-subtitle>
       <ion-card-title>{{ facebookUser?.name }}</ion-card-title>
     </ion-card-header>
 
     <ion-card-content>
       <div *ngIf="facebookFriends?.length <= 0">
-        <p>Oops! It appears that none of your friends are using the Shuffriend App.</p>
-
-        <p>In order to select random friends to stay social you need to invite them to download an use the Shuffriend App.</p>
+        <p>It appears that none of your friends are using the Shuffriend App yet. 🥺</p>
+        <p>In order to get random friends to stay social with they also need to install and use the Shuffriend App.</p>
 
         <ion-button tappable (click)="inviteFriends()" expand="block" color="primary" class="ion-margin-top">
           <ion-icon slot="start" name="logo-facebook"></ion-icon>
