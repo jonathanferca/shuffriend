@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 // Ionic
-import { Platform } from '@ionic/angular';
+import { Platform, MenuController } from '@ionic/angular';
 
 // Native
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -23,6 +23,7 @@ export class AppComponent {
   constructor(
     private router: Router,
     private platform: Platform,
+    private menuController: MenuController,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private facebook: Facebook
@@ -68,6 +69,7 @@ export class AppComponent {
         alert('logoutResponse');
         alert(logoutResponse);
 
+        this.menuController.close();
         this.router.navigate(['/start']);
       },
       (logoutError) => {
