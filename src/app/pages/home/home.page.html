@@ -5,5 +5,34 @@
 </ion-header>
 
 <ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-avatar class="ion-text-center">
+        <img src="{{ facebookUser?.picture?.data?.url }}">
+      </ion-avatar>
 
+      <ion-card-subtitle class="ion-margin-top">Hi,</ion-card-subtitle>
+      <ion-card-title>{{ facebookUser?.name }}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <div *ngIf="facebookFriends?.length <= 0">
+        <p>Oops! It appears that none of your friends are using the Shuffriend App.</p>
+
+        <p>In order to select random friends to stay social you need to invite them to download an use the Shuffriend App.</p>
+
+        <ion-button tappable (click)="inviteFriends()" expand="block" color="primary" class="ion-margin-top">
+          <ion-icon slot="start" name="logo-facebook"></ion-icon>
+          Invite friends
+        </ion-button>
+      </div>
+
+      <div *ngIf="facebookFriends?.length > 0">
+        <ion-button tappable (click)="beSocial()" expand="block" color="success" class="ion-margin-top">
+          <ion-icon slot="start" name="play"></ion-icon>
+          Be Social
+        </ion-button>
+      </div>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

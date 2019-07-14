@@ -1,8 +1,14 @@
+// Angular
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
+// Ionic
 import { Platform } from '@ionic/angular';
+
+// Native
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { Facebook } from '@ionic-native/facebook/ngx';
 
 @Component({
   selector: 'app-root',
@@ -15,9 +21,11 @@ export class AppComponent {
    ***********************************************************/
 
   constructor(
+    private router: Router,
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    private facebook: Facebook
   ) {
     this.initializeApp();
   }
@@ -28,8 +36,28 @@ export class AppComponent {
 
   initializeApp() {
     this.platform.ready().then(() => {
+      this.checkFacebookLoginStatus();
+
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
   }
+
+  checkFacebookLoginStatus() {
+    this.facebook.getLoginStatus().then(
+      (loginStatusResponse) => {
+        if (loginStatusResponse && loginStatusResponse.status === 'connected') {
+          this.router.navigate(['/home']);
+        }
+        else {
+          this.router.navigate(['/start']);
+        }
+      },
+      (loginStatusError) => {
+        this.router.navigate(['/start']);
+      }
+    );
+  }
+
+
 }
