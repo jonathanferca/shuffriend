@@ -11,7 +11,6 @@ import { Facebook } from '@ionic-native/facebook/ngx';
 })
 export class HomePage implements OnInit {
 
-  public facebookUserId: string;
   public facebookUser: object;
   public facebookFriends: Array<any>;
 
@@ -28,10 +27,20 @@ export class HomePage implements OnInit {
    ***********************************************************/
 
   ngOnInit() {
-    this.facebookUserId = '100589447929593';
-
     this.getFacebookUserData();
     this.getFacebookUserFriends();
+  }
+
+  /***********************************************************
+   * ACTIONS
+   ***********************************************************/
+
+  inviteFriends() {
+    alert('I will invite friends');
+  }
+
+  beSocial() {
+    alert('I will be social');
   }
 
   /***********************************************************
@@ -39,12 +48,14 @@ export class HomePage implements OnInit {
    ***********************************************************/
 
   getFacebookUserData() {
-    this.facebook.api(`/${this.facebookUserId}/`, []).then(
+    this.facebook.api('/me/?fields=id,name,email,picture', []).then(
       (userDataResponse) => {
         console.log('userDataResponse');
         console.log(userDataResponse);
 
         alert(userDataResponse);
+
+        this.facebookUser = userDataResponse;
       },
       (userDataError) => {
         console.log('userDataError');
@@ -56,12 +67,14 @@ export class HomePage implements OnInit {
   }
 
   getFacebookUserFriends() {
-    this.facebook.api(`/${this.facebookUserId}/friends`, []).then(
+    this.facebook.api('/me/friends', []).then(
       (userFriendsResponse) => {
         console.log('userFriendsResponse');
         console.log(userFriendsResponse);
 
         alert(userFriendsResponse);
+
+        this.facebookFriends = userFriendsResponse.data;
       },
       (userFriendsError) => {
         console.log('userFriendsError');
